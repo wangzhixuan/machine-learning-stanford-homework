@@ -6,7 +6,7 @@ function [J, grad] = costFunctionReg(theta, X, y, lambda)
 
 % Initialize some useful values
 m = length(y); % number of training examples
-[m,n] = size(X)
+[m,n] = size(X);
 
 % You need to return the following variables correctly 
 J = 0;
@@ -23,11 +23,14 @@ y_predict = X * theta;
 h = ones(size(y)) ./ (1+ exp(-y_predict));
 h_bar = 1 - h;
 
-J = - (y'*log(h) + (1-y)'*log(1-h))/m + (lambda/(2*m)) * (theta(2:n)' * theta(2:n))
+J = - (y'*log(h) + (1-y)'*log(1-h))/m + (lambda/(2*m)) * (theta(2:n)' * theta(2:n));
 grad = (X' * (h - y))/m + (lambda/m)*theta;
-grad(1) -= (lambda/m)*theta(1)
+grad(1) -= (lambda/m)*theta(1);
 
-
+%fprintf('=======labmda = %g=========\n', lambda)
+%fprintf('J= %g, grad_theta=\n',J)
+%fprintf('%g ', grad) 
+%fprintf('\n')
 
 
 % =============================================================

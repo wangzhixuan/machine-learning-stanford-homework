@@ -24,7 +24,10 @@ if size(X, 2) <= 3
     
     % Legend, specific for the exercise
     legend('Admitted', 'Not admitted', 'Decision Boundary')
-    axis([30, 100, 30, 100])
+    range = max(X(:,2)) - min(X(:,2));
+    xlim([min(X(:,2))-range/20, max(X(:,2))+range/20]);
+    range = max(X(:,2)) - min(X(:,2));
+    ylim([min(X(:,3))-range/20, max(X(:,3))+range/20]);
 else
     % Here is the grid range
     u = linspace(-1, 1.5, 50);
